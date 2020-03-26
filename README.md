@@ -63,8 +63,8 @@
 | 名称 | 大小 | 使用 |
 |:---:|:---:|:---:|
 | parser | 44.2KB | 微信小程序插件包 |
-| parser.min | 29.8KB | 微信小程序插件包压缩版（功能相同） |
-| parser.uni | 57.7KB | `uni-app` 插件包（可以编译到所有平台） |
+| parser.min | 29.7KB | 微信小程序插件包压缩版（功能相同） |
+| parser.uni | 58.2KB | `uni-app` 插件包（可以编译到所有平台） |
 
 百度版从 `20191215` 起不再维护，可从过去版本中获取（`Parser.bd`）
 
@@ -190,6 +190,10 @@
 
 
 ## 更新日志 ##
+- 2020.3.26  
+  1. `F` 修复了使用自闭合 `svg` 标签会导致死循环的问题 [详细](https://github.com/jin-yufeng/Parser/issues/94)  
+  2. `F` 修复了设置 `domain` 属性时 `data:image` 和 `cloud://` 的链接会被错误填充的问题  
+  
 - 2020.3.23  
   1. `A` 增加了 `audio` 的补丁包（替代被废弃的原生 `audio`）[详细](https://jin-yufeng.github.io/Parser/#/instructions#audio)  
   2. `U` 通过 `eslint` 检查规范和修复了一些问题  
@@ -213,7 +217,7 @@
      5. 加载错误时能够触发 `error` 事件，且可以重设 `src` [详细](https://jin-yufeng.github.io/Parser/#/instructions#事件)  
   
      可能存在的问题：  
-     若没有设置大小图片会在加载完成后突然从默认大小（300 × 100）变为原大小（图片较大，加载较慢时较明显），可以在 `trees.wxss` 的 `._img` 中调整默认大小  
+     若没有设置大小图片会在加载完成后突然从默认大小（300 × 50）变为原大小（图片较大，加载较慢时较明显），可以在 `trees.wxss` 的 `._img` 中调整默认大小  
   2. `U` `a` 标签支持 `:visited` 效果（默认变为紫色，可在 `trees.wxss` 中调整）  
   3. `F` 修复了 `a` 标签所在段落使用一些特殊实体编码时可能导致错误换行的问题 [详细](https://github.com/jin-yufeng/Parser/issues/87)  
   4. `F` 修复了 `uni-app` 包 `H5` 端在创建时设置数据无法显示的问题 [详细](https://github.com/jin-yufeng/Parser/issues/89)  
@@ -237,10 +241,5 @@
   3. `U` 给 `document` 补丁包添加和修改了一些方法 [详细](https://jin-yufeng.github.io/Parser/#/instructions#document)  
   4. `F` 修复了由于自动压缩带来的一些问题（主要是 `background-image`）  
   5. `F` 修复了使用 `show-with-animation` 属性时个别情况下会白屏的问题 [详细](https://github.com/jin-yufeng/Parser/issues/82)
-
-- 2020.2.26
-  1. `A` 添加了 `parser-group` 补丁包 [详细](https://jin-yufeng.github.io/Parser/#/instructions#parser-group)  
-  2. `U` `uni-app` 包 `App` 端支持 `a` 标签链接为文档时自动下载和打开，`v3` 支持 `embed` 标签  
-  3. `F` 修复了部分情况下连续实体编码失效的问题  
 
 更多可见：[更新日志](https://jin-yufeng.github.io/Parser/#/changelog)
